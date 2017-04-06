@@ -1,0 +1,11 @@
+#notOption{
+    -fx-font-weight: bold;
+}
+
+#option{
+    -fx-padding:0 0 0 15;
+}
+
+#selected{
+    -fx-padding: 0 0 0 -5;
+}
