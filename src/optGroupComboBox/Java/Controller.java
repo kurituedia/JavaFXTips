@@ -6,7 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.effect.Effect;
 import javafx.util.Callback;
 import optGroupComboBox.Java.Enum.ComboBoxOptions;
 
@@ -14,7 +13,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-
 
     @FXML
     private ComboBox<ComboBoxOptions> optGroupComboBox;
