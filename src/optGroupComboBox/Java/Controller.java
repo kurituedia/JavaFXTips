@@ -6,24 +6,21 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.effect.Effect;
 import javafx.util.Callback;
 import optGroupComboBox.Java.Enum.ComboBoxOptions;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable{
+public class Controller implements Initializable {
 
-    @FXML
-    AnchorPane anchorPane;
 
     @FXML
     private ComboBox<ComboBoxOptions> optGroupComboBox;
 
     @FXML
-    private void trimLabelPosition(ActionEvent event){
-        System.out.println(event.getEventType());
+    private void trimLabelPosition(ActionEvent event) {
         optGroupComboBox.setId("selected");
     }
 
@@ -32,19 +29,19 @@ public class Controller implements Initializable{
         optGroupComboBox.setCellFactory(new Callback<ListView<ComboBoxOptions>, ListCell<ComboBoxOptions>>() {
             @Override
             public ListCell<ComboBoxOptions> call(ListView<ComboBoxOptions> param) {
-                return new ListCell<ComboBoxOptions>(){
+                return new ListCell<ComboBoxOptions>() {
                     @Override
                     protected void updateItem(ComboBoxOptions item, boolean empty) {
                         super.updateItem(item, empty);
-                        if(empty){
+                        if (empty) {
                             setText("");
                             setGraphic(null);
-                        }else{
+                        } else {
                             setText(item.getLabel());
-                            if (item.isOption().equals("NOT_OPTION")){
+                            if (item.isOption().equals("NOT_OPTION")) {
                                 setId("notOption");
                                 setDisable(true);
-                            }else{
+                            } else {
                                 setId("option");
                             }
 

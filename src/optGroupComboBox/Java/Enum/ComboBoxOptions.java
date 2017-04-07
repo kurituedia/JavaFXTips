@@ -24,4 +24,12 @@ public enum ComboBoxOptions {
     public String isOption(){
         return this.isOption;
     }
+
+    public void setLabel(String label){
+        this.label = label;
+    }
+
+    public void setIsOption(String isOption){
+        this.isOption = isOption;
+    }
 }
