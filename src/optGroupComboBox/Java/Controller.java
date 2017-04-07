@@ -2,23 +2,56 @@ package optGroupComboBox.Java;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Callback;
+import optGroupComboBox.Java.Enum.ComboBoxOptions;
 
-public class Controller {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class Controller implements Initializable{
 
     @FXML
     AnchorPane anchorPane;
 
     @FXML
-    private ComboBox<Integer> manaCosts;
+    private ComboBox<ComboBoxOptions> optGroupComboBox;
 
     @FXML
-    private ComboBox<ComboBoxOptions> cardSets;
-
-    @FXML
-    private void trim(ActionEvent event){
-        cardSets.setId("selected");
+    private void trimLabelPosition(ActionEvent event){
+        System.out.println(event.getEventType());
+        optGroupComboBox.setId("selected");
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        optGroupComboBox.setCellFactory(new Callback<ListView<ComboBoxOptions>, ListCell<ComboBoxOptions>>() {
+            @Override
+            public ListCell<ComboBoxOptions> call(ListView<ComboBoxOptions> param) {
+                return new ListCell<ComboBoxOptions>(){
+                    @Override
+                    protected void updateItem(ComboBoxOptions item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if(empty){
+                            setText("");
+                            setGraphic(null);
+                        }else{
+                            setText(item.getLabel());
+                            if (item.isOption().equals("NOT_OPTION")){
+                                setId("notOption");
+                                setDisable(true);
+                            }else{
+                                setId("option");
+                            }
+
+                        }
+                    }
+                };
+            }
+        });
+    }
 }

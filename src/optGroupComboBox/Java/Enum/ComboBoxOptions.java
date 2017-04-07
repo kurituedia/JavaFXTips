@@ -1,4 +1,4 @@
-package optGroupComboBox.Java;
+package optGroupComboBox.Java.Enum;
 
 public enum ComboBoxOptions {
     GROUP1("Group1","NOT_OPTION"),
